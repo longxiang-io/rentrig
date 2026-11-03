@@ -48,12 +48,12 @@ export function HeroSearch() {
         alt=""
         fill
         priority
-        sizes="100vw"
+        unoptimized
         className="-z-20 object-cover object-right"
       />
       <div
         aria-hidden="true"
-        className="from-background via-background/70 absolute inset-0 -z-10 bg-gradient-to-r to-transparent"
+        className="from-background/90 via-background/40 absolute inset-0 -z-10 bg-gradient-to-r to-transparent"
       />
       <Container>
         <h1 className="max-w-[720px] text-4xl font-bold tracking-tight leading-[1.1] md:text-[56px]">
