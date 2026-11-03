@@ -1,12 +1,11 @@
-import Link from "next/link"
-import { MapPin } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { MapPin } from "lucide-react";
 
-import { CategoryIcon } from "@/components/category-icon"
-import { Container } from "@/components/container"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { categories } from "@/data/categories"
-import { devices } from "@/data/devices"
+import { Container } from "@/components/container";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { devices } from "@/data/devices";
 
 export function FeaturedEquipment() {
   return (
@@ -17,10 +16,6 @@ export function FeaturedEquipment() {
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {devices.map((device) => {
-            const category = categories.find(
-              (item) => item.slug === device.categorySlug
-            )
-
             return (
               <Link
                 key={device.id}
@@ -28,13 +23,14 @@ export function FeaturedEquipment() {
                 className="block"
               >
                 <Card className="gap-0 overflow-hidden border py-0 shadow-sm ring-0">
-                  <div className="bg-muted flex aspect-[4/3] items-center justify-center">
-                    {category ? (
-                      <CategoryIcon
-                        name={category.icon}
-                        className="text-muted-foreground size-11"
-                      />
-                    ) : null}
+                  <div className="relative aspect-[4/3] bg-[#ECEFF7]">
+                    <Image
+                      src={device.image}
+                      alt={device.name}
+                      fill
+                      sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
+                      className="object-contain p-4"
+                    />
                   </div>
                   <CardContent className="p-5">
                     <div className="flex items-start justify-between gap-2">
@@ -64,10 +60,10 @@ export function FeaturedEquipment() {
                   </CardContent>
                 </Card>
               </Link>
-            )
+            );
           })}
         </div>
       </Container>
     </section>
-  )
+  );
 }
