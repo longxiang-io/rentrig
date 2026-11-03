@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { format, isSameMonth } from "date-fns"
+import Image from "next/image"
 import { type DateRange } from "react-day-picker"
 
 import { Container } from "@/components/container"
@@ -41,7 +42,19 @@ export function HeroSearch() {
   }
 
   return (
-    <header className="bg-gradient-to-b from-background to-muted py-14 md:py-24">
+    <header className="relative isolate overflow-hidden py-14 md:py-24">
+      <Image
+        src="/images/hero-bg.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover object-right"
+      />
+      <div
+        aria-hidden="true"
+        className="from-background via-background/70 absolute inset-0 -z-10 bg-gradient-to-r to-transparent"
+      />
       <Container>
         <h1 className="max-w-[720px] text-4xl font-bold tracking-tight leading-[1.1] md:text-[56px]">
           Rent the right equipment, by the day.
